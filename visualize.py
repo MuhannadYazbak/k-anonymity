@@ -11,7 +11,7 @@ from datasets import get_dataset_params
 from algorithms import read_tree
 
 methods = ['mondrian', 'classic_mondrian', 'topdown'] #['cluster', 'datafly']
-dataset = ['adult', 'cahousing', 'cmc', 'mgm', 'informs']  # italia
+dataset = ['adult', 'cahousing', 'cmc', 'mgm', 'informs','bank-full','heat_2020_cleaned']  # italia
 k_array = [i for i in range(10, 110, 10)]
 
 metrics = ['ncp', 'cav', 'dm']
@@ -188,16 +188,16 @@ def run_anon_data_ml():
 if __name__ == '__main__':
 
     # Metric evaluation
-    # run_anon_data()
-    # plot_metric(
-    #     col = ["data", "method", "k", "ncp", "cav", "dm"],
-    #     metrics = metrics,
-    #     dataset=dataset,
-    #     methods=methods,
-    #     label_x= dataset,
-    #     label_y = metric_names,
-    #     figname='./demo/metrics'
-    # )
+    run_anon_data()
+    plot_metric(
+        col = ["data", "method", "k", "ncp", "cav", "dm"],
+        metrics = metrics,
+        dataset=dataset,
+        methods=methods,
+        label_x= dataset,
+        label_y = metric_names,
+        figname='./demo/metrics'
+    )
 
     run_anon_data_ml()
     plot_metric_ml(
